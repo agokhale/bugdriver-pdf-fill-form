@@ -1,0 +1,7 @@
+to extract the fdf:
+pdftk irsf1099r2022.pdf generate_fdf output - > irsf1099r2022.fdf
+has dumb names 
+pdftk irsf1099r2022.pdf dump_data_fields output - > fields             
+<edit fdf>
+rebuild pdf
+ pdftk irsf1099r2022.pdf fill_form testfdf output testout.pdf
