@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "pdf-fill-form": "^5.1.0"
+    "pdf-fill-form": "^5.1.0",
+    "pdf-form-fill": "^0.2.1"
   }
 }
