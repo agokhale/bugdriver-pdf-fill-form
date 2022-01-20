@@ -12,7 +12,7 @@ var fields = { "Retiree Last Name" : 'fett' };
 var irsfields = {  "f2_1[0]":'stillfett' }; // this is the form that pdftk seems to like
 //var irsfields = {  'payer_addr':'stillfett' }; // we can change the alternate field name in lifecycle designer
 //var irsfields = {  'topmostSubform[0].Page1[0].payer_addr[0]':'stillfett' }; // full path from pdftk dump_data_fields
-
+var irsfields = {  'topmostSubform[0].CopyB[0].LeftCol_ReadOrderControl[0].f2_1[0]':'stillfett' }; // full path from pdftk dump_data_fields
 var outpdf = pdfFillForm.writeSync(pdf_template_path, fields, { "savetype":"imgpdf"}); // this works
 fs.writeFileSync( 'outret.pdf', outpdf); 
 
@@ -27,6 +27,9 @@ pdfFormFill.fill(pdf_template_path, fields, { "savetype":"imgpdf", "verbose":tru
     stream => stream.pipe(outpdfret2)
   ).catch(err => console.error(err)); 
 
+
+
+pdfFormFill.fields (pdf_template_pathirs).then( out => console.log(out));
 
 const outpdf2 = fs.createWriteStream("outisr2.pdf"); // this is broken, pdf not filled out
 pdfFormFill.fill(pdf_template_pathirs, irsfields, { "savetype":"imgpdf", "verbose":true}).then (
