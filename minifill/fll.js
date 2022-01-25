@@ -31,8 +31,10 @@ pdfFormFill.fill(pdf_template_path, fields, { "savetype":"imgpdf", "verbose":tru
 
 pdfFormFill.fields (pdf_template_pathirs).then( out => console.log(out));
 
-const outpdf2 = fs.createWriteStream("outisr2.pdf"); // this is broken, pdf not filled out
+const outpdf2 = fs.createWriteStream("outisr2.pdf"); // this is broken maybe, pdf not filled out
+
 pdfFormFill.fill(pdf_template_pathirs, irsfields, { "savetype":"imgpdf", "verbose":true}).then (
     stream => stream.pipe(outpdf2)
   ).catch(err => console.error(err)); 
+
 console.log ("done-form-fill");
